@@ -42,39 +42,21 @@ export const useStore = create<RFState>((set, get) => ({
       {
         id: "node-1",
         type: "telegram",
-        position: { x: 0, y: 100},
+        position: { x: 575, y: 200},
         data: { 
-          label: "Hello!",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXIlgQg4yMlcdmdQVw8XY5X1DlO55E-S0ALg&s",
+          label: "/start",
+          image: "https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-6896827_1280.png",
           buttons: [
             [
-              { id: 'btn-1-1', text: "btn1" },
-              { id: 'btn-1-2', text: "btn2"}
+              { id: 'btn-1-1', text: "First inline button" },
+              { id: 'btn-1-2', text: "Second inline button"}
             ],
             [
-              {id: "btn-2-1", text: "btn1"}
+              {id: "btn-2-1", text: "New row button"}
             ]
           ]
         }
       },
-      {
-        id: "node-2",
-        type: "telegram",
-        position: { x: 0, y: 200},
-        data: { 
-          label: "Bye!",
-          image: "https://i.ytimg.com/vi/PKffm2uI4dk/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgSig8MA8=&rs=AOn4CLDqrZ4kgngezsXx6GoNT3w_AeWyGQ",
-          buttons: [
-            [
-              { id: 'btn-1-1', text: "btn1" },
-              { id: 'btn-1-2', text: "btn2"}
-            ],
-            [
-              {id: "btn-2-1", text: "btn1"}
-            ]
-          ]
-        }
-      }
     ],
 
     edges: [],

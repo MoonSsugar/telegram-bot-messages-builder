@@ -17,7 +17,7 @@ export default function TelegramNode({ data, selected }: NodeProps<MyTelegramNod
 
   return (
     <div 
-      className={`bg-white border rounded-xl p-3 ${ selected ? "border-blue-500" : "border-slate-200" }`}
+      className={`bg-white border rounded-xl p-3 ${ selected ? "border-blue-500" : "border-slate-200" } flex flex-col items-center`}
     >
       <Handle type="target" position={Position.Top}/>
 
