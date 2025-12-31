@@ -1,32 +1,23 @@
-import { ReactFlow } from "@xyflow/react";
-import TelegramNode from "./components/TelegramNode";
-import { useStore } from "./store";
-import type { NodeTypes } from "@xyflow/react";
-import "@xyflow/react/dist/style.css";
-
-const nodeTypes: NodeTypes = { telegram: TelegramNode }
+import { BrowserRouter, Routes, Route } from "react-router";
+import FlowBuilderPage from "./pages/FlowBuilderPage";
+import DashboardPage from "./pages/DashboardPage";
+import LoginPage from "./pages/LoginPage";
+import BotSettingsPage from "./pages/BotSettingsPage";
+import AddBotPage from "./pages/AddBotPage";
 
 function App() {
-  const {
-    nodes,
-    edges,
-    onNodesChange,
-    onEdgesChange,
-    onConnect
-  } = useStore();
 
   return (
-    <div className="w-screen h-screen">
-      <ReactFlow 
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodeTypes={nodeTypes}
-      />
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/add-bot" element={<AddBotPage />} />
+        <Route path="/bot/:id/settings" element={<BotSettingsPage />} />
+        <Route path="/bot/:id/flow" element={<FlowBuilderPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App
