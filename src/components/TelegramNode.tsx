@@ -1,5 +1,6 @@
 import { Position, Handle } from "@xyflow/react";
 import { Button } from "./ui/button";
+import stringToColor from "@/utils/stringToColor";
 import type { Node, NodeProps } from "@xyflow/react";
 import type ButtonType from "@/types";
 
@@ -30,6 +31,9 @@ export default function TelegramNode({ data, selected }: NodeProps<MyTelegramNod
           return (
             <div key={rowIndex} className="flex flex-row gap-1">
               {buttons.map((button: ButtonType) => {
+
+                const color = stringToColor(button.id);
+
                 return (
                   <div key={button.id} className="relative">
                     <Button variant="outline" size="sm">{button.text}</Button>
@@ -39,7 +43,7 @@ export default function TelegramNode({ data, selected }: NodeProps<MyTelegramNod
                       type="source" 
                       position={Position.Bottom}
                       className="z-50"
-                      style={{ bottom: -3 }}
+                      style={{ bottom: -3, backgroundColor: color}}
                     />
                   </div>
                 );

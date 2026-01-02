@@ -4,6 +4,7 @@ import {
   applyNodeChanges,
   addEdge
 } from "@xyflow/react";
+import stringToColor from "./utils/stringToColor";
 import type { 
   Node,
   Edge,
@@ -70,7 +71,11 @@ export const useStore = create<RFState>((set, get) => ({
     },
 
     onConnect: (connection) => {
-      set({ edges: addEdge(connection, get().edges)});
+      const color = stringToColor((connection.sourceHandle as string));
+
+      const edgeStyle = { stroke: color, strokeWidth: 2 };
+
+      set({ edges: addEdge({ ...connection, style: edgeStyle }, get().edges) });
     },
 
     setNodes: (nodes) => {

@@ -22,7 +22,8 @@ export default function ButtonsMatrix({ selectedNode }: ButtonsMatrixProps) {
             {buttons.map((button, colIndex) => {
               return (
                 <div key={button.id} className="flex">
-                  <Input 
+                  <Input
+                    className="min-w-10"
                     value={button.text}
                     onChange={(event) => updateButtonText(rowIndex, colIndex, event.target.value)}
                   />
