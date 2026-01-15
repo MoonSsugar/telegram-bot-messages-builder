@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
-import { useStore } from "@/store";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  updateNodeData,
+  removeNode
+} from "@/redux/slices/flowSlice";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import ButtonsMatrix from "./ButtonsMatrix";
 
 export default function Sidebar() {
+  const dispatch = useAppDispatch();
   const { 
-    nodes, 
-    selectedNodeId, 
-    updateNodeData,
-    removeNode
-  } = useStore();
+    nodes,
+    selectedNodeId
+  } = useAppSelector((state) => state.flow)
 
   const [ width, setWidth ] = useState(320);
   const [ isResizing, setIsResizing ] = useState(false);
@@ -78,7 +81,11 @@ export default function Sidebar() {
             value={(selectedNode.data.label as string) || ""}
             onChange={
               (event) => {
-                updateNodeData((selectedNodeId as string), { label: event.target.value})}
+                dispatch(updateNodeData({
+                  id: (selectedNodeId as string), 
+                  changes: { label: event.target.value }
+                }))
+              }
             }
           />
 
@@ -89,17 +96,20 @@ export default function Sidebar() {
             value={(selectedNode.data.image as string) || ""}
             onChange={
               (event) => {
-                updateNodeData((selectedNodeId as string), { image: event.target.value})}
+                dispatch(updateNodeData({ 
+                  id: (selectedNodeId as string), 
+                  changes: { image: event.target.value}
+                }))
+              }
             }
           />
           
           <ButtonsMatrix selectedNode={selectedNode}/>
 
           <Button 
-            className="bg-red-600" variant="destructive" size="lg" 
-            onClick={() => removeNode((selectedNodeId as string))}
+            className="bg-red-600 mt-2" variant="destructive" size="lg" 
+            onClick={() => dispatch(removeNode((selectedNodeId as string)))}
           >Delete node</Button>
-
         </div>   
       </div>
     );
