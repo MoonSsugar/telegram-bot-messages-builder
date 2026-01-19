@@ -30,8 +30,6 @@ export default function FlowBuilderPage() {
   useEffect(() => {
     const loadFlow = async () => {
       dispatch(setIsLoading(true))
-      console.log("start loading")
-
 
       try {
         const savedFlow = await getFlow();
