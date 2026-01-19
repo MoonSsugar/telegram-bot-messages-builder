@@ -3,16 +3,16 @@ import { Button } from "./ui/button";
 import { saveFlow } from "@/lib/mocApi";
 import { 
   setError, 
-  setIsLoading,
+  setIsSaving,
   createNode
 } from "@/redux/slices/flowSlice";
 
 export default function ToolBar() {
   const dispatch = useAppDispatch();
-  const { nodes, edges, isLoading } = useAppSelector((state) => state.flow);
+  const { nodes, edges, isSaving } = useAppSelector((state) => state.flow);
 
   const onSave = async () => {
-    dispatch(setIsLoading(true));
+    dispatch(setIsSaving(true));
     dispatch(setError(null));
 
     try {
@@ -29,7 +29,7 @@ export default function ToolBar() {
         alert("Unknown error occurred");
       }
     } finally {
-      dispatch(setIsLoading(false));
+      dispatch(setIsSaving(false));
     }
   };
 
@@ -38,11 +38,11 @@ export default function ToolBar() {
   return (
     <div className="absolute flex top-3 left-3 gap-1 bg-white border p-3 rounded-2xl shadow">
       <Button   
-        disabled={isLoading}
+        disabled={isSaving}
         size="lg" 
         variant="outline"
         onClick={() => onSave()}
-      >{ isLoading ? "Saving..." : "Save" }</Button>
+      >{ isSaving ? "Saving..." : "Save" }</Button>
       
       <Button 
         size="lg" 

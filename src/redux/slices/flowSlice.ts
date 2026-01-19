@@ -25,6 +25,7 @@ interface FlowState {
   edges: Edge[],
   selectedNodeId: string | null,
   isLoading: boolean,
+  isSaving: boolean,
   error: string | null,
 }
 
@@ -52,6 +53,7 @@ const initialState: FlowState = {
   edges: [],
   selectedNodeId: null,
   isLoading: false,
+  isSaving: false,
   error: null
 };
 
@@ -167,9 +169,12 @@ export const flowSlice = createSlice({
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+    setIsSaving: (state, action: PayloadAction<boolean>) => {
+      state.isSaving = action.payload;
+    },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
-    }
+    },
   }
 });
 
@@ -181,6 +186,7 @@ export const {
   setNodes,
   setError,
   setIsLoading,
+  setIsSaving,
   setSelectedNode,
   addButton,
   addRow,
