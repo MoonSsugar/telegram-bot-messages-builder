@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The application provides a node-based editor for visually designing Telegram bot logic. Users can build workflows by connecting custom nodes, edit their configuration in real time, and persist progress locally.
 
-Currently, two official plugins are available:
+The main focus of this project is frontend architecture, performance, and UX, rather than a production-ready Telegram bot runtime.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tech Stack
 
-## React Compiler
+React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+TypeScript
 
-## Expanding the ESLint configuration
+React Flow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Redux Toolkit – primary state management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Zustand – previously used, fully migrated away
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Shadcn/UI – modern, accessible UI components
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Features
+Drag & Drop Flow Builder
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Intuitive node creation and connection using React Flow.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Custom Node Types
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Domain-specific nodes representing Telegram bot logic.
+
+Dynamic Handles
+
+Node inputs and outputs generated dynamically based on node configuration.
+
+Undo / Redo
+
+History tracking to safely experiment with flow changes.
+
+Local Storage Persistence
+
+Automatic saving and restoring of flows between sessions.
+
+Sidebar Node Editing
+
+Real-time node configuration via a dedicated sidebar panel.
+
+Predictable State Architecture
+
+Centralized state using Redux Toolkit, including a completed migration from Zustand.
+
+Project Goals
+
+This project was built to:
+
+Practice building complex interactive editors
+
+Explore advanced React Flow customization
+
+Demonstrate state management design and migration
+
+Serve as a code example for recruiters and technical interviews
+
+Getting Started
+Install dependencies
+npm install
+
+Run the project locally
+npm run dev
+
+
+The app will be available at:
+
+http://localhost:5173
+
+
+(or the port configured by your dev environment)
+
+Notes
+
+No Telegram Bot API integration
+
+No backend included
+
+No license specified
+
+Built for learning, experimentation, and demonstration purposes
+
+Feedback
+
+Suggestions, ideas, and constructive feedback are welcome.
+This project is intended as an educational and portfolio example.
