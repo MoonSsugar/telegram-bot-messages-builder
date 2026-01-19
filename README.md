@@ -1,90 +1,86 @@
-Overview
+# 🤖 Telegram Bot Flow Builder
 
-The application provides a node-based editor for visually designing Telegram bot logic. Users can build workflows by connecting custom nodes, edit their configuration in real time, and persist progress locally.
+![Project Banner](https://via.placeholder.com/1200x400?text=https://imgur.com/a/5AG5EXw)
 
-The main focus of this project is frontend architecture, performance, and UX, rather than a production-ready Telegram bot runtime.
+[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-2.0-purple?logo=redux)](https://redux-toolkit.js.org/)
+[![React Flow](https://img.shields.io/badge/React_Flow-12-ff0072?logo=reactquery)](https://reactflow.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 
-Tech Stack
+**[🚀 Live Demo](https://telegram-bot-messages-builder.vercel.app/)**
 
-React
+## 📝 Overview
 
-TypeScript
+The application provides a **node-based visual editor** for designing Telegram bot logic. Users can build workflows by connecting custom nodes, edit their configuration in real time, and persist progress locally.
 
-React Flow
+The main focus of this project is **Frontend Architecture**, **Performance**, and **Complex State Management**, rather than a production-ready bot runtime.
 
-Redux Toolkit – primary state management
+---
 
-Zustand – previously used, fully migrated away
+## ✨ Features
 
-Shadcn/UI – modern, accessible UI components
+- **🎨 Drag & Drop Flow Builder** — Intuitive node creation and connection using React Flow.
+- **🧩 Custom Node Types** — Domain-specific nodes representing Telegram bot logic (Text, Image, Buttons matrix).
+- **🔗 Dynamic Handles** — Node inputs and outputs generated dynamically based on configuration.
+- **💾 Local Storage Persistence** — Automatic saving and restoring of flows between sessions.
+- **✏️ Sidebar Editing** — Real-time node configuration via a dedicated sidebar panel.
+- **⚡ Predictable State Architecture** — Centralized state using **Redux Toolkit** (migrated from Zustand for better scalability).
 
-Features
-Drag & Drop Flow Builder
+---
 
-Intuitive node creation and connection using React Flow.
+## 🛠 Tech Stack
 
-Custom Node Types
+| Technology | Purpose |
+|------------|---------|
+| **React** | UI Library |
+| **TypeScript** | Static Typing |
+| **React Flow** | Graph Visualization Core |
+| **Redux Toolkit** | Primary State Management |
+| **Zustand** | *Previously used, fully migrated to Redux* |
+| **Shadcn/UI** | Modern, accessible UI components |
 
-Domain-specific nodes representing Telegram bot logic.
+---
 
-Dynamic Handles
+## 🎯 Project Goals
 
-Node inputs and outputs generated dynamically based on node configuration.
+This project was built to demonstrate engineering skills:
+1.  **Architecture:** Practice building complex interactive editors.
+2.  **Complexity:** Explore advanced React Flow customization.
+3.  **Refactoring:** Demonstrate state management design and migration (Zustand → Redux).
+4.  **Portfolio:** Serve as a code example for technical interviews.
 
-Undo / Redo
+---
 
-History tracking to safely experiment with flow changes.
+## 🚀 Getting Started
 
-Local Storage Persistence
-
-Automatic saving and restoring of flows between sessions.
-
-Sidebar Node Editing
-
-Real-time node configuration via a dedicated sidebar panel.
-
-Predictable State Architecture
-
-Centralized state using Redux Toolkit, including a completed migration from Zustand.
-
-Project Goals
-
-This project was built to:
-
-Practice building complex interactive editors
-
-Explore advanced React Flow customization
-
-Demonstrate state management design and migration
-
-Serve as a code example for recruiters and technical interviews
-
-Getting Started
-Install dependencies
+### 1. Install dependencies
+```bash
 npm install
+```
 
-Run the project locally
+### 2. Run the project locally
+```bash
 npm run dev
-
+```
 
 The app will be available at:
-
+```
 http://localhost:5173
+```
 
+---
 
-(or the port configured by your dev environment)
+## 📌 Notes
 
-Notes
+> * **No Telegram Bot API integration** included.
+> * **No backend** included (Mock API architecture used for async simulation).
+> * **No license specified**.
+> * Built for learning, experimentation, and demonstration purposes.
 
-No Telegram Bot API integration
+---
 
-No backend included
-
-No license specified
-
-Built for learning, experimentation, and demonstration purposes
-
-Feedback
+## 📬 Feedback
 
 Suggestions, ideas, and constructive feedback are welcome.
 This project is intended as an educational and portfolio example.
