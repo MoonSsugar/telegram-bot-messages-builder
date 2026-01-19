@@ -1,6 +1,6 @@
 # 🤖 Telegram Bot Flow Builder
 
-![Project Banner](https://https://i.imgur.com/LdFXG08.png)
+![Project Banner](https://i.imgur.com/LdFXG08.png)
 
 [![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
