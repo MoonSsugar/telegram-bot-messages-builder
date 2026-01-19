@@ -30,22 +30,25 @@ export default function FlowBuilderPage() {
   useEffect(() => {
     const loadFlow = async () => {
       dispatch(setIsLoading(true))
+      console.log("start loading")
 
-      const savedFlow = await getFlow();
 
-      if (savedFlow) {
-        try {
+      try {
+        const savedFlow = await getFlow();
+
+        if (savedFlow) {
           const { nodes, edges } = JSON.parse(savedFlow);
 
           dispatch(setNodes(nodes));
           dispatch(setEdges(edges || []));
 
           console.log("Restored from backup!");
-        } catch (e) {
-          console.error("Failed to parse flow", e);
-        } finally {
-          dispatch(setIsLoading(false));
         }
+      } catch (e) {
+        console.error("Failed to parse flow", e);
+      } finally {
+        dispatch(setIsLoading(false));
+
       }
     };
 
